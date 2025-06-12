@@ -1,8 +1,15 @@
 -- CREATE the DB first and then USE
-CREATE SCHEMA animaltracker;
+CREATE SCHEMA IF NOT EXISTS animaltracker;
 USE animaltracker;
 
--- DROP TABLES Users, Animals, ReportLikes, AnimalLikes, Dogs, Cats, Capybaras, Reports;
+DROP TABLE IF EXISTS ReportLikes;
+DROP TABLE IF EXISTS AnimalLikes;
+DROP TABLE IF EXISTS Reports;
+DROP TABLE IF EXISTS Dogs;
+DROP TABLE IF EXISTS Cats;
+DROP TABLE IF EXISTS Capybaras;
+DROP TABLE IF EXISTS Animals;
+DROP TABLE IF EXISTS Users;
 
 -- CREATE the tables
 -- Table User
@@ -57,7 +64,7 @@ CREATE TABLE Reports (
     description TEXT,
     street_name VARCHAR(255) NOT NULL,
     created_by_user_id INT NOT NULL,    
-    reported_animal_id INT NOT NULL UNIQUE, 
+    reported_animal_id INT NOT NULL, 
     FOREIGN KEY (created_by_user_id) REFERENCES Users(id),
     FOREIGN KEY (reported_animal_id) REFERENCES Animals(id)
 );
