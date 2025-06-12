@@ -1,4 +1,19 @@
-# Documento Técnico: Neighborhood Animal Tracker
+# Neighborhood Animal Tracker
+
+## Como Executar o Programa
+
+1. **Crie o banco de dados:**  
+   Execute o arquivo SQL fornecido (`database.sql`) no seu servidor MySQL para criar as tabelas necessárias.
+
+2. **Compile e execute o projeto:**  
+   Não há dependências externas. Basta compilar o projeto Java e executar a classe `Main`.
+
+   ```sh
+   javac Main.java
+   java Main
+   ```
+
+---
 
 ## Descrição, Justificativas e Evidências
 
