@@ -37,21 +37,21 @@ public class Main {
                 // Register Users
                 System.out.printf("Registering users...%n");
 
-                User user1 = new User(0, "Alice Johnson", "alice@example.com");
-                User user2 = new User(0, "Bob Williams", "bob@example.com");
-                User user3 = new User(0, "Charlie Davis", "charlie@example.com");
-                User user4 = new User(0, "Diana Green", "diana@example.com");
-                User user5 = new User(0, "Eve Black", "eve@example.com");
-                User user6 = new User(0, "Frank White", "frank@example.com");
-                User user7 = new User(0, "Grace Hall", "grace@example.com");
-                User user8 = new User(0, "Henry King", "henry@example.com");
-                User user9 = new User(0, "Ivy Lee", "ivy@example.com");
-                User user10 = new User(0, "Jack Turner", "jack@example.com");
-                User user11 = new User(0, "Olivia Bell", "olivia@example.com");
-                User user12 = new User(0, "Peter Clark", "peter@example.com");
-                User user13 = new User(0, "Quinn Adams", "quinn@example.com");
-                User user14 = new User(0, "Rachel Hill", "rachel@example.com");
-                User user15 = new User(0, "Sam Taylor", "sam@example.com");
+                User user1 = new User(0, "Alice Johnson", "Saint Barth");
+                User user2 = new User(0, "Bob Williams", "Saint Martin");
+                User user3 = new User(0, "Charlie Davis", "Saint Barth");
+                User user4 = new User(0, "Diana Green", "Saint Barth");
+                User user5 = new User(0, "Eve Black", "Saint Martin");
+                User user6 = new User(0, "Frank White", "Be Peninsula");
+                User user7 = new User(0, "Grace Hall", "Via Bella");
+                User user8 = new User(0, "Henry King", "Saint Martin");
+                User user9 = new User(0, "Ivy Lee", "Be Peninsula");
+                User user10 = new User(0, "Jack Turner", "Saint Martin");
+                User user11 = new User(0, "Olivia Bell", "Be Peninsula");
+                User user12 = new User(0, "Peter Clark", "Saint Martin");
+                User user13 = new User(0, "Quinn Adams", "Via Bella");
+                User user14 = new User(0, "Rachel Hill", "Via Bella");
+                User user15 = new User(0, "Sam Taylor", "Via Bella");
 
                 userService.registerUser(user1);
                 userService.registerUser(user2);
@@ -114,14 +114,14 @@ public class Main {
                 System.out.printf("Creating reports...%n");
                 Report report1 = new Report(0, "Stray dog on main street", StreetName.AVENIDA_DAS_ACACIAS_DA_PENINSULA, user1, buddy);
                 Report report2 = new Report(0, "Injured cat near park", StreetName.RUA_ANGELINS_DA_PENINSULA, user2, fluffy);
-                Report report3 = new Report(0, "Loud barking at Oak Avenue", StreetName.AVENIDA_DOS_FLAMBOYANTS_DA_PENINSULA, user3, max);
-                Report report4 = new Report(0, "Missing capybara poster", StreetName.RUA_AROEIRAS_DA_PENINSULA, user4, gary);
-                Report report5 = new Report(0, "Cat stuck in tree at Maple Drive", StreetName.RUA_BAUHINEAS_DA_PENINSULA, user5, mittens);
-                Report report6 = new Report(0, "Unusual animal sighting at Elm Street", StreetName.RUA_BROMELIAS_DA_PENINSULA, user6, squeaky);
+                Report report3 = new Report(0, "Loud barking", StreetName.AVENIDA_DOS_FLAMBOYANTS_DA_PENINSULA, user3, max);
+                Report report4 = new Report(0, "Missing cat poster", StreetName.RUA_AROEIRAS_DA_PENINSULA, user4, fluffy);
+                Report report5 = new Report(0, "Cat stuck in tree in park", StreetName.RUA_BAUHINEAS_DA_PENINSULA, user5, mittens);
+                Report report6 = new Report(0, "Unusual animal sighting at Bromelias Street", StreetName.RUA_BROMELIAS_DA_PENINSULA, user6, mittens);
                 Report report7 = new Report(0, "Aggressive dog reported", StreetName.RUA_PAU_BRASIL_DA_PENINSULA, user7, fido);
                 Report report8 = new Report(0, "Lost cat looking for home", StreetName.RUA_SAPUCAIAS_DA_PENINSULA, user8, daisy);
                 Report report9 = new Report(0, "Friendly dog roaming freely", StreetName.AVENIDA_DAS_ACACIAS_DA_PENINSULA, user9, cooper);
-                Report report10 = new Report(0, "Small capybara on the loose", StreetName.RUA_ANGELINS_DA_PENINSULA, user10, coco);
+                Report report10 = new Report(0, "Small dog on the loose", StreetName.RUA_ANGELINS_DA_PENINSULA, user10, zoe);
 
                 reportService.createReport(report1);
                 reportService.createReport(report2);
@@ -152,21 +152,11 @@ public class Main {
                 animalService.userLikesAnimal(user6.getId(), max.getId());
                 animalService.userLikesAnimal(user8.getId(), max.getId());
 
-                animalService.userLikesAnimal(user3.getId(), gary.getId());
-                animalService.userLikesAnimal(user7.getId(), gary.getId());
-                animalService.userLikesAnimal(user9.getId(), gary.getId());
-
-                animalService.userLikesAnimal(user8.getId(), bubbles.getId());
-                animalService.userLikesAnimal(user9.getId(), bubbles.getId());
-                animalService.userLikesAnimal(user10.getId(), bubbles.getId());
-
                 animalService.userLikesAnimal(user11.getId(), whiskers.getId());
                 animalService.userLikesAnimal(user12.getId(), bella.getId());
                 animalService.userLikesAnimal(user13.getId(), cooper.getId());
                 animalService.userLikesAnimal(user14.getId(), felix.getId());
                 animalService.userLikesAnimal(user15.getId(), zoe.getId());
-                animalService.userLikesAnimal(user1.getId(), river.getId());
-                animalService.userLikesAnimal(user2.getId(), coco.getId());
                 animalService.userLikesAnimal(user3.getId(), bingo.getId());
                 animalService.userLikesAnimal(user4.getId(), luna.getId());
                 System.out.printf("Animal likes added.%n");
@@ -194,10 +184,20 @@ public class Main {
                 reportService.userLikesReport(user14.getId(), report10.getId());
                 System.out.printf("Report likes added.%n");
 
+                // Show Deleting
+                System.out.printf("Deleting some things.%n");
+                animalService.deleteAnimal(fluffy.getId());
+                animalService.deleteAnimal(fido.getId());
+                userService.deleteUser(user1.getId());
+                userService.deleteUser(user2.getId());
+                reportService.deleteReport(report2.getId());
+                reportService.deleteReport(report3.getId());
+
+
+
                 System.out.printf("Initial data created successfully.%n");
             } catch (Exception e) {
                 System.err.printf("Error during initial data setup: %s%n", e.getMessage());
-                e.printStackTrace();
             }
 
             // --- Console Application Loop ---

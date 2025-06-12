@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class ConsoleUtils {
 
     public static void displayMenu() {
-        System.out.printf("%n--- ANIMAL SHELTER CONSOLE ---%n");
+        System.out.printf("%n--- ANIMAL TRACKER CONSOLE ---%n");
         System.out.printf("1. See Top Reports%n");
         System.out.printf("2. See Top Animals%n");
         System.out.printf("3. View Animal Profile%n");
@@ -39,7 +39,7 @@ public class ConsoleUtils {
             for (Report report : reports) {
                 System.out.printf("Report ID: %d%n", report.getId());
                 System.out.printf("  Description: %s%n", report.getDescription());
-                System.out.printf("  Street: %s%n", report.getStreet());
+                System.out.printf("  Street: %s%n", report.getStreet().toString());
                 System.out.printf("  Reported by: %s%n", (report.getCreatedBy() != null ? report.getCreatedBy().getName() : "N/A"));
                 System.out.printf("  Reported Animal: %s (ID: %d)%n",
                         (report.getReportedAnimal() != null ? report.getReportedAnimal().getNickName() : "N/A"),

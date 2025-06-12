@@ -59,7 +59,7 @@ public class ReportService {
         Report report = reportDAO.findById(reportId);
 
         report.like(user);
-        reportDAO.update(report);
+        reportDAO. update(report);
         connection.commit();
 
         System.out.println("User " + user.getName() + " liked report " + report.getId() + "!");
