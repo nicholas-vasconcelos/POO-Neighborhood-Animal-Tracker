@@ -35,7 +35,7 @@ CREATE TABLE Cats (
     likes_being_pet BOOLEAN,
     is_vaccinated BOOLEAN,
     is_castrated BOOLEAN,
-    FOREIGN KEY (id) REFERENCES Animals(id)
+    FOREIGN KEY (id) REFERENCES Animals(id) ON DELETE CASCADE
 );
 
 -- Create Sub-Table Dogs
@@ -47,7 +47,7 @@ CREATE TABLE Dogs (
     likes_being_pet BOOLEAN,
     is_vaccinated BOOLEAN,
     is_castrated BOOLEAN,
-    FOREIGN KEY (id) REFERENCES Animals(id)
+    FOREIGN KEY (id) REFERENCES Animals(id) ON DELETE CASCADE
 );
 
 -- Create Sub-Table Capybaras
@@ -55,7 +55,7 @@ CREATE TABLE Capybaras (
 	id INT PRIMARY KEY,
     social_group_size INT,
 	eats_grass BOOLEAN,
-    FOREIGN KEY (id) REFERENCES Animals(id)
+    FOREIGN KEY (id) REFERENCES Animals(id) ON DELETE CASCADE
 );
 
 -- Create Table Reports
@@ -65,8 +65,8 @@ CREATE TABLE Reports (
     street_name VARCHAR(255) NOT NULL,
     created_by_user_id INT NOT NULL,    
     reported_animal_id INT NOT NULL, 
-    FOREIGN KEY (created_by_user_id) REFERENCES Users(id),
-    FOREIGN KEY (reported_animal_id) REFERENCES Animals(id)
+    FOREIGN KEY (created_by_user_id) REFERENCES Users(id) ON DELETE CASCADE,
+    FOREIGN KEY (reported_animal_id) REFERENCES Animals(id) ON DELETE CASCADE
 );
 
 -- Create Table AnimalLikes, that holds likes by Users on Animals
@@ -74,8 +74,8 @@ CREATE TABLE AnimalLikes (
 	user_id INT NOT NULL,
     animal_id INT NOT NULL,
     PRIMARY KEY (user_id, animal_id),
-    FOREIGN KEY (user_id) REFERENCES Users(id),
-    FOREIGN KEY (animal_id) REFERENCES Animals(id)
+    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
+    FOREIGN KEY (animal_id) REFERENCES Animals(id) ON DELETE CASCADE
 );
 
 -- Create Table AnimalLikes, that holds likes by Users on Reports
@@ -83,6 +83,6 @@ CREATE TABLE ReportLikes (
 	user_id INT NOT NULL,
     report_id INT NOT NULL,
     PRIMARY KEY (user_id, report_id),
-    FOREIGN KEY (user_id) REFERENCES Users(id),
-    FOREIGN KEY (report_id) REFERENCES Reports(id)
+    FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
+    FOREIGN KEY (report_id) REFERENCES Reports(id) ON DELETE CASCADE
 );
